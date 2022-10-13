@@ -1,0 +1,13 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "CSE341-T2 | Global FSY Store",
+    "description": "Global FSY Store",
+    "version": "1.0.0"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": ["http"],
+  "paths": {
+  }
+}

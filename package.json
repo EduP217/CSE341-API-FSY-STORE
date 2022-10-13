@@ -1,0 +1,45 @@
+{
+  "name": "cse341-api-fsy-store",
+  "version": "1.0.0",
+  "description": "This is the API for the project FSY-STORE for the course CSE341 in the Fall semester - 2022 in Brigham Young University",
+  "main": "app.js",
+  "scripts": {
+    "test": "nodemon app.js",
+    "start": "node app.js",
+    "format": "prettier --write \"**/*.{css,js,json}\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EduP217/CSE341-API-FSY-STORE.git"
+  },
+  "author": "CSE341-Team2",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EduP217/CSE341-API-FSY-STORE/issues"
+  },
+  "homepage": "https://github.com/EduP217/CSE341-API-FSY-STORE#readme",
+  "dependencies": {
+    "@graphql-tools/schema": "^9.0.4",
+    "@hapi/joi": "^17.1.1",
+    "body-parser": "^1.20.0",
+    "connect-mongo": "^4.6.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "express-graphql": "^0.12.0",
+    "express-session": "^1.17.3",
+    "express-validator": "^6.14.2",
+    "fs-extra": "^10.1.0",
+    "graphql": "^14.7.0",
+    "http-errors": "^2.0.0",
+    "method-override": "^3.0.0",
+    "moment": "^2.29.4",
+    "mongoose": "^6.6.2",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.20",
+    "passport": "^0.6.0",
+    "passport-google-oauth20": "^2.0.0",
+    "swagger-autogen": "^2.22.0",
+    "swagger-ui-express": "^4.5.0"
+  }
+}
