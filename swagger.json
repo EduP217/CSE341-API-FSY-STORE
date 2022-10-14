@@ -1,13 +1,172 @@
 {
-  "swagger": "2.0",
-  "info": {
-    "title": "CSE341-T2 | Global FSY Store",
-    "description": "Global FSY Store",
-    "version": "1.0.0"
-  },
-  "host": "localhost:3000",
-  "basePath": "/",
-  "schemes": ["http"],
-  "paths": {
-  }
+	"swagger": "2.0",
+	"info": {
+		"title": "CSE341-T2 | Global FSY Store",
+		"description": "Global FSY Store",
+		"version": "1.0.0"
+	},
+	"host": "localhost:3000",
+	"basePath": "/",
+	"schemes": ["http"],
+	"paths": {
+		"/": {
+			"get": {
+				"description": "",
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				}
+			}
+		},
+		"/api-docs": {
+			"get": {
+				"description": "",
+				"parameters": [],
+				"responses": {}
+			}
+		},
+		"/payments/": {
+			"get": {
+				"description": "",
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"400": {
+						"description": "Bad Request"
+					}
+				}
+			},
+			"post": {
+				"description": "",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"clientFirstName": {
+									"example": "Ribeka"
+								},
+								"clientLastName": {
+									"example": "Nanjo"
+								},
+								"cardNumber": {
+									"example": "7339-0523-6543-776"
+								},
+								"cardExpireyDate": {
+									"example": "12/21/2022"
+								},
+								"cardSecurityCode": {
+									"example": "666419"
+								}
+							}
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"201": {
+						"description": "OK"
+					},
+					"400": {
+						"description": "Bad Request"
+					}
+				}
+			}
+		},
+		"/payments/{paymentsId}": {
+			"get": {
+				"description": "",
+				"parameters": [
+					{
+						"name": "paymentsId",
+						"in": "path",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"400": {
+						"description": "Bad Request"
+					}
+				}
+			},
+			"put": {
+				"description": "",
+				"parameters": [
+					{
+						"name": "paymentsId",
+						"in": "path",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"clientFirstName": {
+									"example": "Ribeka"
+								},
+								"clientLastName": {
+									"example": "Nanjo"
+								},
+								"cardNumber": {
+									"example": "7339-0523-6543-776"
+								},
+								"cardExpireyDate": {
+									"example": "12/21/2022"
+								},
+								"cardSecurityCode": {
+									"example": "666419"
+								}
+							}
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"204": {
+						"description": "OK"
+					},
+					"400": {
+						"description": "Bad Request"
+					}
+				}
+			},
+			"delete": {
+				"description": "",
+				"parameters": [
+					{
+						"name": "paymentsId",
+						"in": "path",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"400": {
+						"description": "Bad Request"
+					}
+				}
+			}
+		}
+	}
 }
