@@ -9,5 +9,177 @@
   "basePath": "/",
   "schemes": ["http"],
   "paths": {
+    "/": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api-docs": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/order/": {
+      "get": {
+        "description": "",
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "userID": {
+                  "example": "user ID"
+                },
+                "date created": {
+                  "example": "12/30/2022"
+                },
+                "last date modified": {
+                  "example": "12/30/2022"
+                },
+                "shipping cost": {
+                  "example": "$10.75"
+                },
+                "subtotal": {
+                  "example": "$32.15"
+                },
+                "taxes": {
+                  "example": "$2.55"
+                },
+                "total": {
+                  "example": "$45.85"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/order/{orderId}": {
+      "get": {
+        "description": "",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                  "userID": {
+                      "example": "user ID"
+                      },
+                      "date created": {
+                      "example": "12/30/2022"
+                      },
+                      "last date modified": {
+                      "example": "12/30/2022"
+                      },
+                      "shipping cost": {
+                      "example": "$10.75"
+                      },
+                      "subtotal": {
+                      "example": "$32.15"
+                      },
+                      "taxes": {
+                      "example": "$2.55"
+                      },
+                      "total": {
+                      "example": "$45.85"
+                      }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "204": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    }
   }
 }
