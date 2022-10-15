@@ -60,12 +60,15 @@ const updateProducts = async (req, res) => {
 const userId = new ObjectId(req.params.id);
 const newProducts= {
   
-     productName: req.body.productName,
-      price: req.body.price,
-      email: req.body.email,
-      productStock: req.body.productStock,
-      
-     description: req.body.birthday
+    productName: req.body.productName,
+    price: req.body.price,
+    color: req.body.color,
+    description:req.body.description,
+    productStock:req.body.productStock,
+    productImage:req.body.productImage,
+    thumbnail:req.body.thumbnail,
+    brand:req.body.brand,
+   model:req.body.model
   
 };
 
