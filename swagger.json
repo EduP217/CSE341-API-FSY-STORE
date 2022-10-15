@@ -9,24 +9,6 @@
 	"basePath": "/",
 	"schemes": ["http"],
 	"paths": {
-		"/": {
-			"get": {
-				"description": "",
-				"parameters": [],
-				"responses": {
-					"200": {
-						"description": "OK"
-					}
-				}
-			}
-		},
-		"/api-docs": {
-			"get": {
-				"description": "",
-				"parameters": [],
-				"responses": {}
-			}
-		},
 		"/payments/": {
 			"get": {
 				"description": "",
@@ -38,6 +20,9 @@
 					},
 					"400": {
 						"description": "Bad Request"
+					},
+					"500": {
+						"description": "Internal Server Error"
 					}
 				}
 			},
@@ -51,18 +36,23 @@
 							"type": "object",
 							"properties": {
 								"clientFirstName": {
+                  "type": "string",
 									"example": "Ribeka"
 								},
 								"clientLastName": {
+                  "type": "string",
 									"example": "Nanjo"
 								},
 								"cardNumber": {
+                  "type": "string",
 									"example": "7339-0523-6543-776"
 								},
-								"cardExpireyDate": {
+								"cardExpiresDate": {
+                  "type": "string",
 									"example": "12/21/2022"
 								},
 								"cardSecurityCode": {
+                  "type": "string",
 									"example": "666419"
 								}
 							}
@@ -70,14 +60,14 @@
 					}
 				],
 				"responses": {
-					"200": {
-						"description": "OK"
-					},
 					"201": {
 						"description": "OK"
 					},
 					"400": {
 						"description": "Bad Request"
+					},
+					"500": {
+						"description": "Internal Server Error"
 					}
 				}
 			}
@@ -118,18 +108,23 @@
 							"type": "object",
 							"properties": {
 								"clientFirstName": {
+                  "type":"string",
 									"example": "Ribeka"
 								},
 								"clientLastName": {
+                  "type":"string",
 									"example": "Nanjo"
 								},
 								"cardNumber": {
+                  "type":"string",
 									"example": "7339-0523-6543-776"
 								},
-								"cardExpireyDate": {
+								"cardExpiresDate": {
+                  "type":"string",
 									"example": "12/21/2022"
 								},
 								"cardSecurityCode": {
+                  "type":"string",
 									"example": "666419"
 								}
 							}
@@ -137,14 +132,14 @@
 					}
 				],
 				"responses": {
-					"200": {
-						"description": "OK"
-					},
 					"204": {
 						"description": "OK"
 					},
 					"400": {
 						"description": "Bad Request"
+					},
+					"500": {
+						"description": "Internal Server Error"
 					}
 				}
 			},
@@ -164,6 +159,9 @@
 					},
 					"400": {
 						"description": "Bad Request"
+					},
+					"500": {
+						"description": "Internal Server Error"
 					}
 				}
 			}
