@@ -11,14 +11,7 @@
     "http"
   ],
   "paths": {
-    "/api-docs": {
-      "get": {
-        "description": "",
-        "parameters": [],
-        "responses": {}
-      }
-    },
-    "/products/": {
+    "/product/": {
       "get": {
         "description": "",
         "produces": [
@@ -41,30 +34,39 @@
               "type": "object",
               "properties": {
                 "productName": {
+                  "type":"string",
                   "example": "any"
                 },
                 "price": {
+                  "type":"number",
                   "example": "any"
                 },
                 "color": {
+                  "type":"string",
                   "example": "any"
                 },
                 "description": {
+                  "type":"string",
                   "example": "any"
                 },
                 "productStock": {
-                  "example": "any"
+                  "type":"string",
+                  "example": "integer"
                 },
                 "productImage": {
+                  "type":"string",
                   "example": "any"
                 },
                 "thumbnail": {
+                  "type":"string",
                   "example": "any"
                 },
                 "brand": {
+                  "type":"string",
                   "example": "any"
                 },
                 "model": {
+                  "type":"string",
                   "example": "any"
                 }
               }
@@ -81,7 +83,7 @@
         }
       }
     },
-    "/products/{id}": {
+    "/product/{productId}": {
       "get": {
         "description": "",
         "produces": [
@@ -89,7 +91,7 @@
         ],
         "parameters": [
           {
-            "name": "id",
+            "name": "productId",
             "in": "path",
             "required": true,
             "type": "string"
@@ -105,7 +107,7 @@
         "description": "",
         "parameters": [
           {
-            "name": "id",
+            "name": "productId",
             "in": "path",
             "required": true,
             "type": "string"
@@ -117,18 +119,39 @@
               "type": "object",
               "properties": {
                 "productName": {
+                  "type":"string",
                   "example": "any"
                 },
                 "price": {
+                  "type":"number",
                   "example": "any"
                 },
-                "email": {
+                "color": {
+                  "type":"string",
+                  "example": "any"
+                },
+                "description": {
+                  "type":"string",
                   "example": "any"
                 },
                 "productStock": {
+                  "type":"string",
+                  "example": "integer"
+                },
+                "productImage": {
+                  "type":"string",
                   "example": "any"
                 },
-                "birthday": {
+                "thumbnail": {
+                  "type":"string",
+                  "example": "any"
+                },
+                "brand": {
+                  "type":"string",
+                  "example": "any"
+                },
+                "model": {
+                  "type":"string",
                   "example": "any"
                 }
               }
@@ -148,7 +171,7 @@
         "description": "",
         "parameters": [
           {
-            "name": "id",
+            "name": "productId",
             "in": "path",
             "required": true,
             "type": "string"
@@ -160,6 +183,20 @@
           },
           "500": {
             "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/products/filterbyterm": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       }
