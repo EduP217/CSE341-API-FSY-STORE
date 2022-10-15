@@ -9,24 +9,6 @@
   "basePath": "/",
   "schemes": ["http"],
   "paths": {
-    "/": {
-      "get": {
-        "description": "",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api-docs": {
-      "get": {
-        "description": "",
-        "parameters": [],
-        "responses": {}
-      }
-    },
     "/order/": {
       "get": {
         "description": "",
@@ -38,6 +20,9 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
@@ -50,40 +35,72 @@
             "schema": {
               "type": "object",
               "properties": {
-                "userID": {
-                  "example": "user ID"
-                },
-                "date created": {
+                "dateCreated": {
+                  "type":"string",
                   "example": "12/30/2022"
                 },
-                "last date modified": {
+                "lastdateModified": {
+                  "type":"string",
                   "example": "12/30/2022"
                 },
-                "shipping cost": {
-                  "example": "$10.75"
+                "shippingCost": {
+                  "type":"number",
+                  "example": "10.75"
                 },
                 "subtotal": {
-                  "example": "$32.15"
+                  "type":"number",
+                  "example": "32.15"
                 },
                 "taxes": {
-                  "example": "$2.55"
+                  "type":"number",
+                  "example": "2.55"
                 },
                 "total": {
-                  "example": "$45.85"
+                  "type":"number",
+                  "example": "45.85"
+                },
+                "orderItems": {
+                  "type":"array",
+                  "items": {
+                    "type":"object",
+                    "properties": {
+                      "productId": {
+                        "type":"string"
+                      },
+                      "quantity": {
+                        "type":"integer"
+                      },
+                      "price": {
+                        "type":"number"
+                      },
+                      "offerDiscount": {
+                        "type":"number"
+                      },
+                      "shippingTypeId": {
+                        "type":"string"
+                      },
+                      "shippingDate": {
+                        "type":"string"
+                      },
+                      "shippingCost": {
+                        "type":"number"
+                      }
+                    }
+                  }
                 }
               }
             }
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
-          },
           "201": {
             "description": "OK"
           },
           "400": {
             "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
@@ -106,6 +123,9 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
@@ -124,40 +144,72 @@
             "schema": {
               "type": "object",
               "properties": {
-                  "userID": {
-                      "example": "user ID"
+                "dateCreated": {
+                  "type":"string",
+                  "example": "12/30/2022"
+                },
+                "lastdateModified": {
+                  "type":"string",
+                  "example": "12/30/2022"
+                },
+                "shippingCost": {
+                  "type":"number",
+                  "example": "10.75"
+                },
+                "subtotal": {
+                  "type":"number",
+                  "example": "32.15"
+                },
+                "taxes": {
+                  "type":"number",
+                  "example": "2.55"
+                },
+                "total": {
+                  "type":"number",
+                  "example": "45.85"
+                },
+                "orderItems": {
+                  "type":"array",
+                  "items": {
+                    "type":"object",
+                    "properties": {
+                      "productId": {
+                        "type":"string"
                       },
-                      "date created": {
-                      "example": "12/30/2022"
+                      "quantity": {
+                        "type":"integer"
                       },
-                      "last date modified": {
-                      "example": "12/30/2022"
+                      "price": {
+                        "type":"number"
                       },
-                      "shipping cost": {
-                      "example": "$10.75"
+                      "offerDiscount": {
+                        "type":"number"
                       },
-                      "subtotal": {
-                      "example": "$32.15"
+                      "shippingTypeId": {
+                        "type":"string"
                       },
-                      "taxes": {
-                      "example": "$2.55"
+                      "shippingDate": {
+                        "type":"string"
                       },
-                      "total": {
-                      "example": "$45.85"
+                      "shippingCost": {
+                        "type":"number"
                       }
+                    }
+                  }
+                }
               }
             }
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
-          },
           "204": {
             "description": "OK"
           },
           "400": {
             "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
@@ -177,6 +229,85 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/order/item/{orderitemId}/shipping/{shippingId}": {
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "orderitemId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "shippingId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "shippingTypeId": {
+                  "type":"string"
+                },
+                "shippingDate": {
+                  "type":"string"
+                },
+                "shippingCost": {
+                  "type":"number"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "orderitemId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "shippingId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
