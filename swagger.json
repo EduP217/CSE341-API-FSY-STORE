@@ -311,6 +311,163 @@
           }
         }
       }
-    }
-  }
+    },
+		"/payments/": {
+			"get": {
+				"description": "",
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"400": {
+						"description": "Bad Request"
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				}
+			},
+			"post": {
+				"description": "",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"clientFirstName": {
+                  "type": "string",
+									"example": "Ribeka"
+								},
+								"clientLastName": {
+                  "type": "string",
+									"example": "Nanjo"
+								},
+								"cardNumber": {
+                  "type": "string",
+									"example": "7339-0523-6543-776"
+								},
+								"cardExpiresDate": {
+                  "type": "string",
+									"example": "12/21/2022"
+								},
+								"cardSecurityCode": {
+                  "type": "string",
+									"example": "666419"
+								}
+							}
+						}
+					}
+				],
+				"responses": {
+					"201": {
+						"description": "OK"
+					},
+					"400": {
+						"description": "Bad Request"
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				}
+			}
+		},
+		"/payments/{paymentsId}": {
+			"get": {
+				"description": "",
+				"parameters": [
+					{
+						"name": "paymentsId",
+						"in": "path",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"400": {
+						"description": "Bad Request"
+					}
+				}
+			},
+			"put": {
+				"description": "",
+				"parameters": [
+					{
+						"name": "paymentsId",
+						"in": "path",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"clientFirstName": {
+                  "type":"string",
+									"example": "Ribeka"
+								},
+								"clientLastName": {
+                  "type":"string",
+									"example": "Nanjo"
+								},
+								"cardNumber": {
+                  "type":"string",
+									"example": "7339-0523-6543-776"
+								},
+								"cardExpiresDate": {
+                  "type":"string",
+									"example": "12/21/2022"
+								},
+								"cardSecurityCode": {
+                  "type":"string",
+									"example": "666419"
+								}
+							}
+						}
+					}
+				],
+				"responses": {
+					"204": {
+						"description": "OK"
+					},
+					"400": {
+						"description": "Bad Request"
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				}
+			},
+			"delete": {
+				"description": "",
+				"parameters": [
+					{
+						"name": "paymentsId",
+						"in": "path",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"400": {
+						"description": "Bad Request"
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				}
+			}
+		}
+	}
 }
