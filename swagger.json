@@ -2,13 +2,205 @@
   "swagger": "2.0",
   "info": {
     "title": "CSE341-T2 | Global FSY Store",
-    "description": "Global FSY Store",
+    "description": "",
     "version": "1.0.0"
   },
   "host": "localhost:3000",
   "basePath": "/",
-  "schemes": ["http"],
+  "schemes": [
+    "http"
+  ],
   "paths": {
+    "/product/": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "productName": {
+                  "type":"string",
+                  "example": "any"
+                },
+                "price": {
+                  "type":"number",
+                  "example": "any"
+                },
+                "color": {
+                  "type":"string",
+                  "example": "any"
+                },
+                "description": {
+                  "type":"string",
+                  "example": "any"
+                },
+                "productStock": {
+                  "type":"string",
+                  "example": "integer"
+                },
+                "productImage": {
+                  "type":"string",
+                  "example": "any"
+                },
+                "thumbnail": {
+                  "type":"string",
+                  "example": "any"
+                },
+                "brand": {
+                  "type":"string",
+                  "example": "any"
+                },
+                "model": {
+                  "type":"string",
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/product/{productId}": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "productName": {
+                  "type":"string",
+                  "example": "any"
+                },
+                "price": {
+                  "type":"number",
+                  "example": "any"
+                },
+                "color": {
+                  "type":"string",
+                  "example": "any"
+                },
+                "description": {
+                  "type":"string",
+                  "example": "any"
+                },
+                "productStock": {
+                  "type":"string",
+                  "example": "integer"
+                },
+                "productImage": {
+                  "type":"string",
+                  "example": "any"
+                },
+                "thumbnail": {
+                  "type":"string",
+                  "example": "any"
+                },
+                "brand": {
+                  "type":"string",
+                  "example": "any"
+                },
+                "model": {
+                  "type":"string",
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/products/filterbyterm": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/order/": {
       "get": {
         "description": "",
