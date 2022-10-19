@@ -2,11 +2,12 @@ require("dotenv").config();
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const GitHubStrategy = require("passport-github2").Strategy;
 const User = require("../models/user");
+const Client = require("../models/clients");
 
-const findOrCreateUser = async (id, provider, name, image, accessToken) =>
+const findOrCreateUser = async (id, provider, name, image, accessToken, clientEmail, clientPhoneNumber) =>
   await User.findOne({ OAuthProfileId: id })
     .then(async (user) => {
-      if (!user)
+      if (!user){
         user = await User.create({
           OAuthProfileId: id,
           provider: provider,
@@ -15,6 +16,13 @@ const findOrCreateUser = async (id, provider, name, image, accessToken) =>
           accessToken,
           roleID: "6348f78c09ff1d1b1e0db027",
         });
+        
+        await Client.create({
+          userId: user.id,
+          email: clientEmail,
+          phoneNumber: clientPhoneNumber
+        })
+      }
       return user;
     })
     .catch((err) => {
