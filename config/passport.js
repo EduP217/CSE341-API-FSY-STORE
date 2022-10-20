@@ -39,7 +39,7 @@ module.exports = (passport) => {
         callbackURL: "/api/v1/auth/google/callback",
       },
       async (accessToken, refreshToken, profile, done) => {
-        console.log(profile);
+        //console.log(profile);
         await findOrCreateUser(
           profile.id,
           profile.provider,
@@ -61,7 +61,7 @@ module.exports = (passport) => {
         callbackURL: "/api/v1/auth/github/callback",
       },
       async (accessToken, refreshToken, profile, done) => {
-        console.log(profile);
+        //console.log(profile);
         await findOrCreateUser(
           profile.id,
           profile.provider,
