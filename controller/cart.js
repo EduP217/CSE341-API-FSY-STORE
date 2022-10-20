@@ -1,5 +1,5 @@
 const cartModel = require("../models/cart");
-const cartItemModel = require("../models/cart_item");
+
 const { cartSchema } = require("../helpers/cartValidator");
 const createError = require('http-errors');
 

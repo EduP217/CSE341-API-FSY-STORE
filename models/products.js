@@ -1,3 +1,4 @@
+const { string } = require('@hapi/joi')
 const mongoose = require('mongoose')
 
 const ProductSchema = new mongoose.Schema({
@@ -21,11 +22,12 @@ const ProductSchema = new mongoose.Schema({
     type: String,
   },
   productImage: {
-    type: Image,
+    type: String,
     required: true,
   },
   thumbnail: {
-    type: Image,
+    type: String,
+    required: true,
   },
   brand: {
     type: String,

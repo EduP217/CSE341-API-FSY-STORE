@@ -6,72 +6,22 @@
     "version": "1.0.0"
   },
   "host": "api-fsy-store.onrender.com",
-  "basePath": "/api/v1/",
-  "schemes": ["http", "https"],
+  "basePath": "/",
+  "schemes": [
+    "http",
+    "https"
+  ],
   "paths": {
-    "/profile/": {
+    "/api-docs": {
       "get": {
-        "description": "Get the current session profile info",
+        "description": "",
         "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/profile/{clientId}": {
-      "put": {
-        "description": "Update the profile info of the current session by clientId",
-        "parameters": [
-          {
-            "name": "clientId",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "address": {
-                  "type": "string"
-                },
-                "phoneNumber": {
-                  "type": "string"
-                },
-                "email": {
-                  "type": "string"
-                },
-                "birthday": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Updated"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
+        "responses": {}
       }
     },
     "/product/": {
       "get": {
         "description": "",
-        "produces": ["application/json"],
         "parameters": [],
         "responses": {
           "200": {
@@ -89,39 +39,30 @@
               "type": "object",
               "properties": {
                 "productName": {
-                  "type": "string",
                   "example": "any"
                 },
                 "price": {
-                  "type": "number",
                   "example": "any"
                 },
                 "color": {
-                  "type": "string",
                   "example": "any"
                 },
                 "description": {
-                  "type": "string",
                   "example": "any"
                 },
                 "productStock": {
-                  "type": "string",
-                  "example": "integer"
+                  "example": "any"
                 },
                 "productImage": {
-                  "type": "string",
                   "example": "any"
                 },
                 "thumbnail": {
-                  "type": "string",
                   "example": "any"
                 },
                 "brand": {
-                  "type": "string",
                   "example": "any"
                 },
                 "model": {
-                  "type": "string",
                   "example": "any"
                 }
               }
@@ -131,20 +72,16 @@
         "responses": {
           "201": {
             "description": "Created"
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         }
       }
     },
-    "/product/{productId}": {
+    "/product/{id}": {
       "get": {
         "description": "",
-        "produces": ["application/json"],
         "parameters": [
           {
-            "name": "productId",
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -160,7 +97,7 @@
         "description": "",
         "parameters": [
           {
-            "name": "productId",
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -172,39 +109,30 @@
               "type": "object",
               "properties": {
                 "productName": {
-                  "type": "string",
                   "example": "any"
                 },
                 "price": {
-                  "type": "number",
                   "example": "any"
                 },
                 "color": {
-                  "type": "string",
                   "example": "any"
                 },
                 "description": {
-                  "type": "string",
                   "example": "any"
                 },
                 "productStock": {
-                  "type": "string",
-                  "example": "integer"
+                  "example": "any"
                 },
                 "productImage": {
-                  "type": "string",
                   "example": "any"
                 },
                 "thumbnail": {
-                  "type": "string",
                   "example": "any"
                 },
                 "brand": {
-                  "type": "string",
                   "example": "any"
                 },
                 "model": {
-                  "type": "string",
                   "example": "any"
                 }
               }
@@ -224,7 +152,7 @@
         "description": "",
         "parameters": [
           {
-            "name": "productId",
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -233,726 +161,6 @@
         "responses": {
           "204": {
             "description": "No Content"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/products/filterbyterm": {
-      "get": {
-        "description": "",
-        "produces": ["application/json"],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/cart/": {
-      "get": {
-        "description": "List information of the current session cart",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
-      "post": {
-        "description": "Create new Cart in session",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "userId": {
-                  "type": "string"
-                },
-                "dateCreated": {
-                  "type": "string"
-                },
-                "lastDateModified": {
-                  "type": "string"
-                },
-                "subtotal": {
-                  "type": "number"
-                },
-                "taxes": {
-                  "type": "number"
-                },
-                "total": {
-                  "type": "number"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
-      "delete": {
-        "description": "Delete the current session cart information",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/cart/item/": {
-      "get": {
-        "description": "List all cart items stored in the current session cart",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
-      "post": {
-        "description": "Create new Cart Item for the current session cart",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "cartId": {
-                  "type": "string"
-                },
-                "productId": {
-                  "type": "string"
-                },
-                "quantity": {
-                  "type": "integer"
-                },
-                "price": {
-                  "type": "number"
-                },
-                "offerDiscount": {
-                  "type": "number"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/cart/item/{cartitemId}": {
-      "get": {
-        "description": "Retrieve details of the cart item selected",
-        "parameters": [
-          {
-            "name": "cartitemId",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
-      "put": {
-        "description": "Find Cart Item by Id and then update the information",
-        "parameters": [
-          {
-            "name": "cartitemId",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "quantity": {
-                  "type": "integer"
-                },
-                "price": {
-                  "type": "number"
-                },
-                "offerDiscount": {
-                  "type": "number"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Updated"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
-      "delete": {
-        "description": "Find the Cart Item by Id and delete the record from database",
-        "parameters": [
-          {
-            "name": "cartitemId",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/cart/item/{cartitemId}/shipping/": {
-      "put": {
-        "description": "Create new Streaming event",
-        "parameters": [
-          {
-            "name": "cartitemId",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "shippingTypeId": {
-                  "type": "string"
-                },
-                "shippingDate": {
-                  "type": "string"
-                },
-                "shippingCost": {
-                  "type": "number"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Updated Shipping Cart Item"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/order/": {
-      "get": {
-        "description": "",
-        "produces": ["application/json"],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
-      "post": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "dateCreated": {
-                  "type": "string",
-                  "example": "12/30/2022"
-                },
-                "lastdateModified": {
-                  "type": "string",
-                  "example": "12/30/2022"
-                },
-                "shippingCost": {
-                  "type": "number",
-                  "example": "10.75"
-                },
-                "subtotal": {
-                  "type": "number",
-                  "example": "32.15"
-                },
-                "taxes": {
-                  "type": "number",
-                  "example": "2.55"
-                },
-                "total": {
-                  "type": "number",
-                  "example": "45.85"
-                },
-                "orderItems": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "productId": {
-                        "type": "string"
-                      },
-                      "quantity": {
-                        "type": "integer"
-                      },
-                      "price": {
-                        "type": "number"
-                      },
-                      "offerDiscount": {
-                        "type": "number"
-                      },
-                      "shippingTypeId": {
-                        "type": "string"
-                      },
-                      "shippingDate": {
-                        "type": "string"
-                      },
-                      "shippingCost": {
-                        "type": "number"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/order/{orderId}": {
-      "get": {
-        "description": "",
-        "produces": ["application/json"],
-        "parameters": [
-          {
-            "name": "orderId",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
-      "put": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "orderId",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "dateCreated": {
-                  "type": "string",
-                  "example": "12/30/2022"
-                },
-                "lastdateModified": {
-                  "type": "string",
-                  "example": "12/30/2022"
-                },
-                "shippingCost": {
-                  "type": "number",
-                  "example": "10.75"
-                },
-                "subtotal": {
-                  "type": "number",
-                  "example": "32.15"
-                },
-                "taxes": {
-                  "type": "number",
-                  "example": "2.55"
-                },
-                "total": {
-                  "type": "number",
-                  "example": "45.85"
-                },
-                "orderItems": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "productId": {
-                        "type": "string"
-                      },
-                      "quantity": {
-                        "type": "integer"
-                      },
-                      "price": {
-                        "type": "number"
-                      },
-                      "offerDiscount": {
-                        "type": "number"
-                      },
-                      "shippingTypeId": {
-                        "type": "string"
-                      },
-                      "shippingDate": {
-                        "type": "string"
-                      },
-                      "shippingCost": {
-                        "type": "number"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
-      "delete": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "orderId",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/order/item/{orderitemId}/shipping/{shippingId}": {
-      "put": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "orderitemId",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "shippingId",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "shippingTypeId": {
-                  "type": "string"
-                },
-                "shippingDate": {
-                  "type": "string"
-                },
-                "shippingCost": {
-                  "type": "number"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
-      "delete": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "orderitemId",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "shippingId",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/payments/": {
-      "get": {
-        "description": "",
-        "produces": ["application/json"],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
-      "post": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "clientFirstName": {
-                  "type": "string",
-                  "example": "Ribeka"
-                },
-                "clientLastName": {
-                  "type": "string",
-                  "example": "Nanjo"
-                },
-                "cardNumber": {
-                  "type": "string",
-                  "example": "7339-0523-6543-776"
-                },
-                "cardExpiresDate": {
-                  "type": "string",
-                  "example": "12/21/2022"
-                },
-                "cardSecurityCode": {
-                  "type": "string",
-                  "example": "666419"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/payments/{paymentsId}": {
-      "get": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "paymentsId",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          }
-        }
-      },
-      "put": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "paymentsId",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "clientFirstName": {
-                  "type": "string",
-                  "example": "Ribeka"
-                },
-                "clientLastName": {
-                  "type": "string",
-                  "example": "Nanjo"
-                },
-                "cardNumber": {
-                  "type": "string",
-                  "example": "7339-0523-6543-776"
-                },
-                "cardExpiresDate": {
-                  "type": "string",
-                  "example": "12/21/2022"
-                },
-                "cardSecurityCode": {
-                  "type": "string",
-                  "example": "666419"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
-      "delete": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "paymentsId",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
           },
           "500": {
             "description": "Internal Server Error"
