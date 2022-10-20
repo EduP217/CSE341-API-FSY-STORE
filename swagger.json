@@ -5,7 +5,7 @@
     "description": "",
     "version": "1.0.0"
   },
-  "host": "api-fsy-store.onrender.com",
+  "host": "localhost:3000",
   "basePath": "/api/v1/",
   "schemes": ["http", "https"],
   "paths": {
@@ -21,18 +21,10 @@
             "description": "Internal Server Error"
           }
         }
-      }
-    },
-    "/profile/{clientId}": {
+      },
       "put": {
         "description": "Update the profile info of the current session by clientId",
         "parameters": [
-          {
-            "name": "clientId",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
           {
             "name": "body",
             "in": "body",

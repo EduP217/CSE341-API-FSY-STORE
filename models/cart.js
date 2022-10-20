@@ -7,7 +7,7 @@ const CartSchema = new mongoose.Schema({
   },
   dateCreated: {
     type: Date,
-    required: true,
+    default: Date.now,
   },
   lastDateModified: {
     type: Date,
@@ -19,6 +19,7 @@ const CartSchema = new mongoose.Schema({
   },
   taxes: {
     type: String,
+    required: true,
   },
   total: {
     type: String,
