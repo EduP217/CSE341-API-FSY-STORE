@@ -10,7 +10,7 @@ const PaymentSchema = new mongoose.Schema({
     required: true,
   },
   cardNumber: {
-    type: String,
+    type: Number,
     required: true,
   },
   cardExpireyDate: {

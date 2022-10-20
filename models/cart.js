@@ -14,14 +14,14 @@ const CartSchema = new mongoose.Schema({
     required: true,
   },
   subtotal: {
-    type: String,
+    type: Number,
     required: true,
   },
   taxes: {
-    type: String,
+    type: Number,
   },
   total: {
-    type: String,
+    type: Number,
     required: true,
   },
 });
