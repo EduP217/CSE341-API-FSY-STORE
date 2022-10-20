@@ -5,7 +5,7 @@
 		"description": "",
 		"version": "1.0.0"
 	},
-	"host": "api-fsy-store.onrender.com",
+	"host": "localhost:3000",
 	"basePath": "/api/v1/",
 	"schemes": ["http", "https"],
 	"paths": {
@@ -843,11 +843,11 @@
 								},
 								"cardExpiresDate": {
 									"type": "string",
-									"example": "12/21/2022"
+									"example": "12/2022"
 								},
 								"cardSecurityCode": {
-									"type": "string",
-									"example": "666419"
+									"type": "number",
+									"example": 419
 								}
 							}
 						}
@@ -910,16 +910,16 @@
 									"example": "Nanjo"
 								},
 								"cardNumber": {
-									"type": "number",
+									"type": "string",
 									"example": "7339-0523-6543-776"
 								},
 								"cardExpiresDate": {
-									"type": "number",
-									"example": "12/21/2022"
+									"type": "string",
+									"example": "12/2022"
 								},
 								"cardSecurityCode": {
 									"type": "number",
-									"example": "666419"
+									"example": 419
 								}
 							}
 						}

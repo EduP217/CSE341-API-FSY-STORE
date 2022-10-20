@@ -3,10 +3,10 @@ const utils = require("../config/utilities");
 
 const paymentSchema = Joi.object({
 	clientFirstName: Joi.string().required(),
-	clientLasttName: Joi.string().required(),
-	cardNumber: Joi.number().default(0),
-	cardExpireyDate: Joi.date().iso().raw(),
-	cardSecurityCode: Joi.number().default(0),
+	clientLastName: Joi.string().required(),
+	cardNumber: Joi.string().min(12).required(),
+	cardExpiresDate: Joi.string().regex(/^\d{2}\/\d{4}$/),
+	cardSecurityCode: Joi.number().integer().min(100).max(999).required(),
 });
 module.exports = {
 	paymentSchema,
