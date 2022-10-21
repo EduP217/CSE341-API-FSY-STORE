@@ -3,28 +3,27 @@ const orderItem = require("../models/orderItem");
 const {orderSchema} = require("../helpers/orderValidator");
 const createError = require('http-errors');
 
-const getAllOrders = async(req, res) =>  {
+const getAllOrders = async(req, res, next) =>  {
     
     // Get all orders from the database
-    await Order.find()
+    await Order
+    .find()
     .then((data) => res.status(200).json(data))    
     .catch((err) => next(createError(500, err)));
 
 }
 
-const getOrderById = async(req, res) => {
+const getOrderById = async(req, res, next) => {
 
         // Get all orders by id from the database
-        const result = await Order.findById(req.params.id)
+        await Order.findById(req.params.id)
         //Return the response
-        res.json(result)
-        res.status(200).send(result)
         .then((data) => res.status(200).json(data))    
         .catch((err) => next(createError(500, err)));
 
 }
 
-const newOrder = async(req, res) => {
+const newOrder = async(req, res, next) => {
     
         //Add order to the database
         const order = new Order(req.body);
@@ -33,7 +32,7 @@ const newOrder = async(req, res) => {
         .then((r) =>
         res.status(201).json({
           message: "The order was created successfully",
-          cartId: r.id,
+          orderId: r.id,
         })
       )
       .catch((err) => 
@@ -41,36 +40,33 @@ const newOrder = async(req, res) => {
 
 } 
 
-const updateOrder = async(req, res) => {
+const updateOrder = async(req, res, next) => {
 
         const id = req.params.id;
         // Update orders from the database
         const order = req.body;
         console.log(order);
-        const result = await Order.findByIdAndUpdate(id, order)
+        await Order.findByIdAndUpdate(id, order)
         //Return the response
         res.status(204).send('The order has been updated')
         .catch((err) => 
           next(createError(500, err || "Some error occurred while updating the order")));
 }
 
-const deleteOrder = async(req, res) => {
-    try {
+const deleteOrder = async(req, res, next) => {
         const id = req.params.id;
         // Delete orders from the database
         const order = req.body;
         console.log(order);
-        const result = await Order.findByIdAndDelete(id, order)
+        await Order.findByIdAndDelete(id, order)
         //Return the response
         res.status(200).send('The order has been deleted')
-    } catch (error) {
-        console.log(error)
-        
-    }   
+        .catch ((err) => 
+            next(createError(500, err || "Some error occurred while updating the order")));
+  
 }
 
 const updateOrderItemId = async(req, res) => {
-    try {
         const id = req.params.id;
         // Update order items from the database
         const orderItem = req.body;
@@ -78,14 +74,12 @@ const updateOrderItemId = async(req, res) => {
         const result = await Order.findByIdAndUpdate(id, orderItem)
         //Return the response
         res.status(204).send('The order item has been updated')
-    } catch (error) {
-        console.log(error)
-        
-    }   
+        .catch ((err) => 
+            next(createError(500, err || "Some error occurred while updating the order")));
+
 }
 
 const deleteOrderItemId = async(req, res) => {
-    try {
         const id = req.params.id;
         // Delete order items from the database
         const orderItem = req.body;
@@ -93,10 +87,9 @@ const deleteOrderItemId = async(req, res) => {
         const result = await Order.findByIdAndDelete(id, orderItem)
         //Return the response
         res.status(200).send('The order item has been deleted')
-    } catch (error) {
-        console.log(error)
-        
-    }   
-};
+        .catch ((err) => 
+        next(createError(500, err || "Some error occurred while updating the order")));
+
+}
 
 module.exports = {getAllOrders, getOrderById, newOrder, updateOrder, deleteOrder, updateOrderItemId, deleteOrderItemId};
