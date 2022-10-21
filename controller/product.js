@@ -1,23 +1,23 @@
-const mongoconfig = require('../config/database');
-const ObjectId = require('mongoose').ObjectId;
+
+// const ObjectId = require('mongoose').ObjectId;
 const createError = require('http-errors');
 const productsModel = require('../models/products');
 
 const getProductAll = async (req, res, next) => {
-    const result = await productsModel
-        .find();
-    result.toArray().then((lists) => res.status(200).json(lists))
+    await productsModel
+        .find()
+        .then((lists) => res.status(200).json(lists))
         .catch((err) => next(createError(500, err)));
 
 
 };
 
 const getSingleProduct = async (req, res, next) => {
-    const productId = new ObjectId(req.params.id);
-    const result = await mongoconfig
+    const productId = req.params.id;
+    await productsModel
 
-        .find({ _id: productId });
-    result.toArray().then((lists) => res.status(200).json(lists[0]))
+        .findById(productId)
+        .then((b) => res.status(200).json(b))
         .catch((err) => next(createError(500, err)));
 
 
@@ -26,8 +26,9 @@ const getSingleProduct = async (req, res, next) => {
 
 
 
-const newProducts = async (req, res) => {
-    const newProducts = {
+const newProducts = async (req, res, next) => {
+    // const productId = req.params.id;
+    const applyNewProducts = {
 
         productName: req.body.productName,
         price: req.body.price,
@@ -40,34 +41,23 @@ const newProducts = async (req, res) => {
         model: req.body.model
 
     };
-    await ProductSchema
-        .validate(newProducts)
-        .then(async (valid) => {
 
-            await productsModel
 
-                .create(valid)
-                .then((r) =>
-                    res.status(201).json({
-                        message: "The cart was created successfully",
-                        productId: r.id,
-                    })
-                )
-                .catch((err) =>
-                    next(createError(500, err || "Some error occurred while creating the cart")));
-        })
-        .catch((err) => {
-            // report exception
-            next(createError(500, err));
-        });
+    await productsModel
 
+        .create(applyNewProducts)
+   
+        .then((s) => res.status(200).json(s))
+        .catch((err) => next(createError(500, err)));
 };
+
+
 
 
 
 const updateProducts = async (req, res, next) => {
-    const productId = new ObjectId(req.params.id);
-    const newProducts = {
+    const productId = req.params.id;
+    const NewProducts = {
 
         productName: req.body.productName,
         price: req.body.price,
@@ -82,30 +72,28 @@ const updateProducts = async (req, res, next) => {
     };
 
 
-    const sendProducts = await productsModel
+    await productsModel
 
-        .replaceOne({ _id: productId }, newProducts);
-    console.log(sendProducts);
-    if (sendProducts.modifiedCount > 0) {
-        res.status(204).send();
-    } else {
-        res.status(500).json(sendProducts.error || 'Some error occurred while updating the newProducts.');
-    }
+        .replaceOne({ _id: productId }, NewProducts)
+   
+        .then((s) => res.status(200).json(s))
+        .catch((err) => next(createError(500, err)));
 };
 
-const deleteProducts = async (req, res) => {
-    const productId = new ObjectId(req.params.id);
-    const del = await productsModel
+const deleteProducts = async (req, res, next) => {
+    const productId = req.params.id;
 
-        .deleteOne({ _id: productId }, true);
-    //   console.log(del);
-    if (del.deletedCount > 0) {
-        res.status(204).send();
 
-    } else {
-        res.status(500).json(del.error || 'Some error occurred while deleting the Products.');
-    }
-};
+
+    await productsModel
+
+        .deleteOne({ _id: productId })
+    // console.log(del)
+        .then((d) => res.status(200).json(d))
+        .catch((err) => next(createError(500, err)));
+
+}
+
 
 
 module.exports = { getProductAll, getSingleProduct, updateProducts, deleteProducts, newProducts };
