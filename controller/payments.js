@@ -24,14 +24,16 @@ const createPayment = async (req, res, next) => {
 				.create(valid)
 				.then((r) =>
 					res.status(201).json({
-						message: "The payment was created successfully",
+						message:
+							"The payment information was created successfully",
 					})
 				)
 				.catch((err) =>
 					next(
 						createError(
 							500,
-							err || "Some error occurred while creating the cart"
+							err ||
+								"Some error occurred while creating the information"
 						)
 					)
 				);
@@ -66,7 +68,7 @@ const update = async (req, res, next) => {
 	await paymentSchema.validateAsync(payment).then(async (valid) => {
 		console.log(valid);
 
-		await model
+		await paymentsModel
 			.findByIdAndUpdate(id, valid)
 			.then((r) => {
 				if (!r)

@@ -5,7 +5,7 @@
 		"description": "",
 		"version": "1.0.0"
 	},
-	"host": "localhost:3000",
+	"host": "api-fsy-store.onrender.com",
 	"basePath": "/api/v1/",
 	"schemes": ["http", "https"],
 	"paths": {
@@ -841,7 +841,7 @@
 									"type": "string",
 									"example": "7339-0523-6543-776"
 								},
-								"cardExpiresDate": {
+								"cardExpireDate": {
 									"type": "string",
 									"example": "12/2022"
 								},
@@ -913,7 +913,7 @@
 									"type": "string",
 									"example": "7339-0523-6543-776"
 								},
-								"cardExpiresDate": {
+								"cardExpireDate": {
 									"type": "string",
 									"example": "12/2022"
 								},
