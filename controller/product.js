@@ -45,7 +45,7 @@ const newProducts = async (req, res, next) => {
 
     await productsModel
 
-        .create(applyNewProducts)
+        .insertOne(applyNewProducts)
    
         .then((s) => res.status(200).json(s))
         .catch((err) => next(createError(500, err)));
