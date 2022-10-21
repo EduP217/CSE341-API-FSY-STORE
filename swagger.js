@@ -5,7 +5,7 @@ const doc = {
 		title: "CSE341-T2 | Global FSY Store",
 		description: "",
 	},
-	host: "api-fsy-store.onrender.com",
+	host: "localhost:3000",
 	basePath: "/api/v1/",
 	schemes: ["http", "https"],
 };
