@@ -4,15 +4,18 @@ const createError = require("http-errors");
 
 //GET
 const getPayment = async (req, res, next) => {
+	const userId = req.user.id;
 	await paymentsModel
-		.find()
+		.find({ userId })
 		.then((data) => res.status(200).json(data))
 		.catch((err) => next(createError(500, err)));
 };
 
 //POST
 const createPayment = async (req, res, next) => {
-	const payment = req.body;
+	const userId = req.user.id;
+	let payment = req.body;
+	payment.userId = userId;
 	res.setHeader("content-type", "application/json");
 
 	await paymentSchema
@@ -62,7 +65,9 @@ const getbyId = async (req, res, next) => {
 //PUT by id
 const update = async (req, res, next) => {
 	const { id } = req.params;
-	const payment = req.body;
+	const userId = req.user.id;
+	let payment = req.body;
+	payment.userId = userId;
 	res.setHeader("content-type", "application/json");
 
 	await paymentSchema.validateAsync(payment).then(async (valid) => {

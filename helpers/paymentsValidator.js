@@ -7,6 +7,7 @@ const paymentSchema = Joi.object({
 	cardNumber: Joi.string().min(12).required(),
 	cardExpireDate: Joi.string().regex(/^\d{2}\/\d{4}$/),
 	cardSecurityCode: Joi.number().integer().min(100).max(999).required(),
+	userId: Joi.string().required(),
 });
 module.exports = {
 	paymentSchema,
