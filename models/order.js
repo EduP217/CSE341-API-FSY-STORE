@@ -7,7 +7,7 @@ const OrderSchema = new mongoose.Schema({
   },
   dateCreated: {
     type: Date,
-    required: true,
+    default: Date.now,
   },
   lastDateModified: {
     type: Date,
