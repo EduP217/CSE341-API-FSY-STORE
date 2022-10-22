@@ -30,12 +30,12 @@ const newProducts = async (req, res, next) => {
     // const productId = req.params.id;
     const applyNewProducts = {
 
-        productName: req.body.productName,
+        name: req.body.name,
         price: req.body.price,
         color: req.body.color,
         description: req.body.description,
-        productStock: req.body.productStock,
-        productImage: req.body.productImage,
+        stock: req.body.stock,
+        image: req.body.image,
         thumbnail: req.body.thumbnail,
         brand: req.body.brand,
         model: req.body.model
@@ -45,7 +45,7 @@ const newProducts = async (req, res, next) => {
 
     await productsModel
 
-        .insertOne(applyNewProducts)
+        .create(applyNewProducts)
    
         .then((s) => res.status(200).json(s))
         .catch((err) => next(createError(500, err)));
@@ -59,12 +59,12 @@ const updateProducts = async (req, res, next) => {
     const productId = req.params.id;
     const NewProducts = {
 
-        productName: req.body.productName,
+        name: req.body.name,
         price: req.body.price,
         color: req.body.color,
         description: req.body.description,
-        productStock: req.body.productStock,
-        productImage: req.body.productImage,
+        stock: req.body.stock,
+        image: req.body.image,
         thumbnail: req.body.thumbnail,
         brand: req.body.brand,
         model: req.body.model

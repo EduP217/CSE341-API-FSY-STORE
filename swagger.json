@@ -88,41 +88,32 @@
             "schema": {
               "type": "object",
               "properties": {
-                "productName": {
-                  "type": "string",
-                  "example": "any"
+                "name": {
+                  "type": "string"
                 },
                 "price": {
-                  "type": "number",
-                  "example": "any"
+                  "type": "number"
                 },
                 "color": {
-                  "type": "string",
-                  "example": "any"
+                  "type": "string"
                 },
                 "description": {
-                  "type": "string",
-                  "example": "any"
+                  "type": "string"
                 },
-                "productStock": {
-                  "type": "string",
-                  "example": "integer"
+                "stock": {
+                  "type": "integer"
                 },
-                "productImage": {
-                  "type": "string",
-                  "example": "any"
+                "image": {
+                  "type": "string"
                 },
                 "thumbnail": {
-                  "type": "string",
-                  "example": "any"
+                  "type": "string"
                 },
                 "brand": {
-                  "type": "string",
-                  "example": "any"
+                  "type": "string"
                 },
                 "model": {
-                  "type": "string",
-                  "example": "any"
+                  "type": "string"
                 }
               }
             }
@@ -171,41 +162,32 @@
             "schema": {
               "type": "object",
               "properties": {
-                "productName": {
-                  "type": "string",
-                  "example": "any"
+                "name": {
+                  "type": "string"
                 },
                 "price": {
-                  "type": "number",
-                  "example": "any"
+                  "type": "number"
                 },
                 "color": {
-                  "type": "string",
-                  "example": "any"
+                  "type": "string"
                 },
                 "description": {
-                  "type": "string",
-                  "example": "any"
+                  "type": "string"
                 },
-                "productStock": {
-                  "type": "string",
-                  "example": "integer"
+                "stock": {
+                  "type": "integer"
                 },
-                "productImage": {
-                  "type": "string",
-                  "example": "any"
+                "image": {
+                  "type": "string"
                 },
                 "thumbnail": {
-                  "type": "string",
-                  "example": "any"
+                  "type": "string"
                 },
                 "brand": {
-                  "type": "string",
-                  "example": "any"
+                  "type": "string"
                 },
                 "model": {
-                  "type": "string",
-                  "example": "any"
+                  "type": "string"
                 }
               }
             }
