@@ -2,7 +2,12 @@ const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
+const passport = require("passport");
+const session = require("express-session");
+const MongoStore = require("connect-mongo");
 const connectDB = require("./config/database");
+
+require("./config/passport")(passport);
 
 connectDB();
 
@@ -19,6 +24,16 @@ app
   .use(cors())
   .use(bodyParser.urlencoded({ extended: false }))
   .use(bodyParser.json())
+  .use(
+    session({
+      secret: "star wars",
+      resave: false,
+      saveUninitialized: false,
+      store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI }),
+    })
+  )
+  .use(passport.initialize())
+  .use(passport.session())
   .use("/api/v1/", require("./routes"))
   ;
 
