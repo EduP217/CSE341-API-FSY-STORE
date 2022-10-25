@@ -5,7 +5,7 @@
     "description": "",
     "version": "1.0.0"
   },
-  "host": "api-fsy-store.onrender.com:3000",
+  "host": "api-fsy-store.onrender.com",
   "basePath": "/api/v1/",
   "schemes": ["http", "https"],
   "paths": {
