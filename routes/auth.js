@@ -32,6 +32,14 @@ router.get(
   }
 );
 
+router.post(
+  "/local",
+  passport.authenticate("local", {
+    successRedirect: "/api/v1/profile",
+    failureRedirect: "/",
+  })
+);
+
 router.get("/logout", (req, res, next) => {
   req.logout((error) => {
     if (error) {
