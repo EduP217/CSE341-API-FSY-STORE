@@ -1,14 +1,13 @@
 const swaggerAutogen = require("swagger-autogen")();
 
 const doc = {
-  info: {
-    title: "CSE341-T2 | Global FSY Store",
-    description: "",
-  },
-  // host: "api-fsy-store.onrender.com",
-  // schemes: ["http", "https"],
-  host: "localhost:3000",
-  schemes: ["http", "https"],
+	info: {
+		title: "CSE341-T2 | Global FSY Store",
+		description: "",
+	},
+	host: "localhost:3000",
+	basePath: "/api/v1/",
+	schemes: ["http", "https"],
 };
 
 const outputFile = "./swagger.json";

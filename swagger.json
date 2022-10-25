@@ -494,7 +494,7 @@
             "in": "body",
             "schema": {
               "type": "object",
-              "properties": {                
+              "properties": {
                 "subtotal": {
                   "type": "number",
                   "example": "32.15"
@@ -541,30 +541,29 @@
                   }
                 },
                 "payment": {
-                "type": "object",
-                "properties": {
-                  "clientFirstName": {
-                    "type": "string",
-                    "example": "Eduardo"
-                  },
-                  "clientLastName": {
-                    "type": "string",
-                    "example": "Prieto"
-                  },
-                  "cardNumber": {
-                    "type": "string",
-                    "example": "1239-8745-6321-8765"
-                  },
-                  "cardExpireDate": {
-                    "type": "string",
-                    "example": "09/2024"
-                  },
-                  "cardSecurityCode": {
-                    "type": "number",
-                    "example": "294"
+                  "type": "object",
+                  "properties": {
+                    "clientFirstName": {
+                      "type": "string",
+                      "example": "Eduardo"
+                    },
+                    "clientLastName": {
+                      "type": "string",
+                      "example": "Prieto"
+                    },
+                    "cardNumber": {
+                      "type": "string",
+                      "example": "1239-8745-6321-8765"
+                    },
+                    "cardExpireDate": {
+                      "type": "string",
+                      "example": "09/2024"
+                    },
+                    "cardSecurityCode": {
+                      "type": "number",
+                      "example": "294"
+                    }
                   }
-                }
-
                 }
               }
             }
@@ -668,9 +667,9 @@
                   "type": "string",
                   "example": "7339-0523-6543-776"
                 },
-                "cardExpiresDate": {
+                "cardExpireDate": {
                   "type": "string",
-                  "example": "12/21/2022"
+                  "example": "21/2022"
                 },
                 "cardSecurityCode": {
                   "type": "string",
@@ -740,9 +739,9 @@
                   "type": "string",
                   "example": "7339-0523-6543-776"
                 },
-                "cardExpiresDate": {
+                "cardExpireDate": {
                   "type": "string",
-                  "example": "12/21/2022"
+                  "example": "21/2022"
                 },
                 "cardSecurityCode": {
                   "type": "string",
