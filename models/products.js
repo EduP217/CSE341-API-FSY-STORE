@@ -1,8 +1,7 @@
-const number = require('@hapi/joi/lib/types/number')
 const mongoose = require('mongoose')
 
 const ProductSchema = new mongoose.Schema({
-    productName: {
+  name: {
     type: String,
     required: true,
   },
@@ -19,14 +18,15 @@ const ProductSchema = new mongoose.Schema({
     required: true,
   },
   stock: {
-    type: number,
+    type: Number,
   },
-  productImage: {
-    type: Image,
+  image: {
+    type: String,
     required: true,
   },
   thumbnail: {
-    type: Image,
+    type: String,
+    required: true,
   },
   brand: {
     type: String,
@@ -35,6 +35,6 @@ const ProductSchema = new mongoose.Schema({
   model: {
     type: String,
   },
-})
+});
 
-module.exports = mongoose.model('Products', ProductSchema)
+module.exports = mongoose.model("Products", ProductSchema);
