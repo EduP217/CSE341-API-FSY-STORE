@@ -1,5 +1,3 @@
-// const { string } = require('@hapi/joi')
-const number = require("@hapi/joi/lib/types/number");
 const mongoose = require("mongoose");
 
 const ProductSchema = new mongoose.Schema({
@@ -8,7 +6,7 @@ const ProductSchema = new mongoose.Schema({
     required: true,
   },
   price: {
-    type: String,
+    type: Number,
     required: true,
   },
   color: {
@@ -20,15 +18,13 @@ const ProductSchema = new mongoose.Schema({
     required: true,
   },
   stock: {
-    type: number,
+    type: Number,
   },
   image: {
-    type: String,
-    required: true,
+    type: String
   },
   thumbnail: {
     type: String,
-    required: true,
   },
   brand: {
     type: String,
