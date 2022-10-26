@@ -33,9 +33,16 @@ app
     })
   )
   .use(passport.initialize())
-  .use(passport.session())
-  .use("/api/v1/", require("./routes"))
-  ;
+  .use(passport.session());
+
+app
+.get("/", (req, res) => {
+  res.json({
+    message: "Hello World"
+  })
+})
+.use("/graphQL", require("./graphQL"))
+.use("/api/v1/", require("./routes"));
 
 app.use((err, req, res, next) => {
   res.status(err.status || 500);
