@@ -4,10 +4,11 @@
   "description": "This is the API for the project FSY-STORE for the course CSE341 in the Fall semester - 2022 in Brigham Young University",
   "main": "app.js",
   "scripts": {
-    "test": "nodemon app.js",
+    "watch": "nodemon app.js",
     "start": "node app.js",
     "swagger-autogen": "node ./swagger.js",
-    "format": "prettier --write \"**/*.{css,js,json}\""
+    "format": "prettier --write \"**/*.{css,js,json}\"",
+    "test": "node ./node_modules/jest/bin/jest.js --runInBand"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,7 @@
     "express-validator": "^6.14.2",
     "fs-extra": "^10.1.0",
     "graphql": "^14.7.0",
+    "graphql-tools": "^8.3.6",
     "http-errors": "^2.0.0",
     "method-override": "^3.0.0",
     "moment": "^2.29.4",
@@ -39,8 +41,15 @@
     "morgan": "^1.10.0",
     "nodemon": "^2.0.20",
     "passport": "^0.6.0",
+    "passport-github2": "^0.1.12",
     "passport-google-oauth20": "^2.0.0",
+    "passport-http-bearer": "^1.0.1",
+    "passport-local": "^1.0.0",
     "swagger-autogen": "^2.22.0",
     "swagger-ui-express": "^4.5.0"
+  },
+  "devDependencies": {
+    "jest": "^29.2.2",
+    "supertest": "^6.3.1"
   }
 }

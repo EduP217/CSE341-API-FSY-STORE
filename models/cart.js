@@ -7,22 +7,26 @@ const CartSchema = new mongoose.Schema({
   },
   dateCreated: {
     type: Date,
-    required: true,
+    default: Date.now,
   },
   lastDateModified: {
     type: Date,
-    required: true,
   },
   subtotal: {
-    type: String,
-    required: true,
+    type: Number,
+    default: 0
   },
   taxes: {
-    type: String,
+    type: Number,
+    default: 0
+  },
+  shippingCost: {
+    type: Number,
+    default: 0
   },
   total: {
-    type: String,
-    required: true,
+    type: Number,
+    default: 0
   },
 });
 

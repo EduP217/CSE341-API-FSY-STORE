@@ -1,11 +1,11 @@
 const mongoose = require('mongoose')
 
 const ShippingSchema = new mongoose.Schema({
-  orderItemID: {
+  orderItemId: {
     type: String,
     required: true,
   },
-  shippingTypeID: {
+  shippingTypeId: {
     type: String,
     required: true,
   },
@@ -14,7 +14,7 @@ const ShippingSchema = new mongoose.Schema({
     required: true,
   },
   shippingCost: {
-    type: String,
+    type: Number,
     required: true,
   },
 })

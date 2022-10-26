@@ -18,13 +18,13 @@ const PaymentSchema = new mongoose.Schema({
 		required: true,
 	},
 	cardSecurityCode: {
-		type: Number,
+		type: String,
 		required: true,
 	},
 	userId: {
 		type: String,
 		required: true,
-	},
+	}
 });
 
 module.exports = mongoose.model("Payments", PaymentSchema);
