@@ -3,7 +3,7 @@ const router = require("../routes");
 
 describe("Test Handlers", () => {
   test("responds to /", async () => {
-    const res = await request("http://localhost:3000").get("/");
+    const res = await request("https://api-fsy-store.onrender.com").get("/");
     expect(res.header["content-type"]).toBe("application/json; charset=utf-8");
     expect(res.statusCode).toBe(200);
     expect(res._body.message).toEqual("Hello World");
@@ -14,7 +14,7 @@ describe("Test Handlers", () => {
         username: "Test",
         password: "test.321",
     };
-    const res = await request("http://localhost:3000")
+    const res = await request("https://api-fsy-store.onrender.com")
       .post("/api/v1/auth/local")
       .type('form')
       .send(payload);
@@ -25,7 +25,7 @@ describe("Test Handlers", () => {
   });
 
   test("responds to /api/v1/auth/logout", async () => {
-    const res = await request("http://localhost:3000").get("/api/v1/auth/logout");
+    const res = await request("https://api-fsy-store.onrender.com").get("/api/v1/auth/logout");
     expect(res.header["content-type"]).toBe("application/json; charset=utf-8");
     expect(res.statusCode).toBe(200);
     expect(res._body.message).toEqual("Successfull Logout");

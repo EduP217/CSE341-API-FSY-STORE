@@ -10,18 +10,18 @@ const OrderItemSchema = new mongoose.Schema({
     required: true,
   },
   quantity: {
-    type: String,
+    type: Number,
     required: true,
   },
   price: {
-    type: String,
+    type: Number,
     required: true,
   },
   offerDiscount: {
-    type: String,
+    type: Number,
   },
   shippingCost: {
-    type: String,
+    type: Number,
     required: true,
   },
 });

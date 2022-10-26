@@ -5,7 +5,7 @@
     "description": "",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "api-fsy-store.onrender.com",
   "basePath": "/api/v1/",
   "schemes": ["http", "https"],
   "paths": {
@@ -80,41 +80,32 @@
             "schema": {
               "type": "object",
               "properties": {
-                "productName": {
-                  "type": "string",
-                  "example": "any"
+                "name": {
+                  "type": "string"
                 },
                 "price": {
-                  "type": "number",
-                  "example": "any"
+                  "type": "number"
                 },
                 "color": {
-                  "type": "string",
-                  "example": "any"
+                  "type": "string"
                 },
                 "description": {
-                  "type": "string",
-                  "example": "any"
+                  "type": "string"
                 },
-                "productStock": {
-                  "type": "string",
-                  "example": "integer"
+                "stock": {
+                  "type": "integer"
                 },
-                "productImage": {
-                  "type": "string",
-                  "example": "any"
+                "image": {
+                  "type": "string"
                 },
                 "thumbnail": {
-                  "type": "string",
-                  "example": "any"
+                  "type": "string"
                 },
                 "brand": {
-                  "type": "string",
-                  "example": "any"
+                  "type": "string"
                 },
                 "model": {
-                  "type": "string",
-                  "example": "any"
+                  "type": "string"
                 }
               }
             }
@@ -163,41 +154,32 @@
             "schema": {
               "type": "object",
               "properties": {
-                "productName": {
-                  "type": "string",
-                  "example": "any"
+                "name": {
+                  "type": "string"
                 },
                 "price": {
-                  "type": "number",
-                  "example": "any"
+                  "type": "number"
                 },
                 "color": {
-                  "type": "string",
-                  "example": "any"
+                  "type": "string"
                 },
                 "description": {
-                  "type": "string",
-                  "example": "any"
+                  "type": "string"
                 },
-                "productStock": {
-                  "type": "string",
-                  "example": "integer"
+                "stock": {
+                  "type": "integer"
                 },
-                "productImage": {
-                  "type": "string",
-                  "example": "any"
+                "image": {
+                  "type": "string"
                 },
                 "thumbnail": {
-                  "type": "string",
-                  "example": "any"
+                  "type": "string"
                 },
                 "brand": {
-                  "type": "string",
-                  "example": "any"
+                  "type": "string"
                 },
                 "model": {
-                  "type": "string",
-                  "example": "any"
+                  "type": "string"
                 }
               }
             }
@@ -495,18 +477,6 @@
             "schema": {
               "type": "object",
               "properties": {
-                "dateCreated": {
-                  "type": "string",
-                  "example": "12/30/2022"
-                },
-                "lastdateModified": {
-                  "type": "string",
-                  "example": "12/30/2022"
-                },
-                "shippingCost": {
-                  "type": "number",
-                  "example": "10.75"
-                },
                 "subtotal": {
                   "type": "number",
                   "example": "32.15"
@@ -514,6 +484,10 @@
                 "taxes": {
                   "type": "number",
                   "example": "2.55"
+                },
+                "shippingCost": {
+                  "type": "number",
+                  "example": "10.75"
                 },
                 "total": {
                   "type": "number",
@@ -545,6 +519,31 @@
                       "shippingCost": {
                         "type": "number"
                       }
+                    }
+                  }
+                },
+                "payment": {
+                  "type": "object",
+                  "properties": {
+                    "clientFirstName": {
+                      "type": "string",
+                      "example": "Eduardo"
+                    },
+                    "clientLastName": {
+                      "type": "string",
+                      "example": "Prieto"
+                    },
+                    "cardNumber": {
+                      "type": "string",
+                      "example": "1239-8745-6321-8765"
+                    },
+                    "cardExpireDate": {
+                      "type": "string",
+                      "example": "09/2024"
+                    },
+                    "cardSecurityCode": {
+                      "type": "number",
+                      "example": "294"
                     }
                   }
                 }
@@ -589,171 +588,11 @@
           }
         }
       },
-      "put": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "orderId",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "dateCreated": {
-                  "type": "string",
-                  "example": "12/30/2022"
-                },
-                "lastdateModified": {
-                  "type": "string",
-                  "example": "12/30/2022"
-                },
-                "shippingCost": {
-                  "type": "number",
-                  "example": "10.75"
-                },
-                "subtotal": {
-                  "type": "number",
-                  "example": "32.15"
-                },
-                "taxes": {
-                  "type": "number",
-                  "example": "2.55"
-                },
-                "total": {
-                  "type": "number",
-                  "example": "45.85"
-                },
-                "orderItems": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "productId": {
-                        "type": "string"
-                      },
-                      "quantity": {
-                        "type": "integer"
-                      },
-                      "price": {
-                        "type": "number"
-                      },
-                      "offerDiscount": {
-                        "type": "number"
-                      },
-                      "shippingTypeId": {
-                        "type": "string"
-                      },
-                      "shippingDate": {
-                        "type": "string"
-                      },
-                      "shippingCost": {
-                        "type": "number"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
       "delete": {
         "description": "",
         "parameters": [
           {
             "name": "orderId",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/order/item/{orderitemId}/shipping/{shippingId}": {
-      "put": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "orderitemId",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "shippingId",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "shippingTypeId": {
-                  "type": "string"
-                },
-                "shippingDate": {
-                  "type": "string"
-                },
-                "shippingCost": {
-                  "type": "number"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
-      "delete": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "orderitemId",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "shippingId",
             "in": "path",
             "required": true,
             "type": "string"
@@ -810,9 +649,9 @@
                   "type": "string",
                   "example": "7339-0523-6543-776"
                 },
-                "cardExpiresDate": {
+                "cardExpireDate": {
                   "type": "string",
-                  "example": "12/21/2022"
+                  "example": "21/2022"
                 },
                 "cardSecurityCode": {
                   "type": "string",
@@ -882,9 +721,9 @@
                   "type": "string",
                   "example": "7339-0523-6543-776"
                 },
-                "cardExpiresDate": {
+                "cardExpireDate": {
                   "type": "string",
-                  "example": "12/21/2022"
+                  "example": "21/2022"
                 },
                 "cardSecurityCode": {
                   "type": "string",
