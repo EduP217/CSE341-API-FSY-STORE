@@ -1,0 +1,74 @@
+//Localhost
+###
+GET http://localhost:3000/api/v1
+
+###
+GET http://localhost:3000/api/v1/order
+
+
+//Production
+###
+GET https://api-fsy-store.onrender.com/api/v1/order
+
+###
+POST https://api-fsy-store.onrender.com/api/v1/order HTTP/1.1
+content-type: application/json
+
+{
+  "subtotal": 32.15,
+  "taxes": 2.55,
+  "shippingCost": 10.75,
+  "total": 45.85,
+  "orderItems": [
+    {
+      "productId": "6352accad92e15b50aee96fb",
+      "quantity": 1,
+      "price": 2.35,
+      "offerDiscount": 1.02,
+      "shippingTypeId": "6348f71a09ff1d1b1e0db022",
+      "shippingDate": "22/10/2022",
+      "shippingCost": 3.21
+    }
+  ],
+  "payment": {
+    "clientFirstName": "Eduardo",
+    "clientLastName": "Prieto",
+    "cardNumber": "1239-8745-6321-8765",
+    "cardExpireDate": "09/2024",
+    "cardSecurityCode": 294
+  }
+}
+
+
+###
+PUT https://api-fsy-store.onrender.com/api/v1/order/63374cd5a028decc92f69805 HTTP/1.1
+content-type: application/json
+
+{
+  "subtotal": 32.15,
+  "taxes": 2.55,
+  "shippingCost": 10.75,
+  "total": 45.85,
+  "orderItems": [
+    {
+      "productId": "6352accad92e15b50aee96fb",
+      "quantity": 1,
+      "price": 2.35,
+      "offerDiscount": 1.02,
+      "shippingTypeId": "6348f71a09ff1d1b1e0db022",
+      "shippingDate": "22/10/2022",
+      "shippingCost": 3.21
+    }
+  ],
+  "payment": {
+    "clientFirstName": "Eduardo",
+    "clientLastName": "Prieto",
+    "cardNumber": "1239-8745-6321-8765",
+    "cardExpireDate": "10/2024",
+    "cardSecurityCode": 294
+  }
+}
+
+###
+DELETE https://api-fsy-store.onrender.com/api/v1/order/633704535749de4305946c9f HTTP/1.1
+content-type: application/json
