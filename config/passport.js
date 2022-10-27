@@ -1,13 +1,22 @@
 require("dotenv").config();
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const GitHubStrategy = require("passport-github2").Strategy;
+const LocalStrategy = require("passport-local").Strategy;
 const User = require("../models/user");
 const Client = require("../models/clients");
 
-const findOrCreateUser = async (id, provider, name, image, accessToken, clientEmail, clientPhoneNumber) =>
+const findOrCreateUser = async (
+  id,
+  provider,
+  name,
+  image,
+  accessToken,
+  clientEmail,
+  clientPhoneNumber
+) =>
   await User.findOne({ OAuthProfileId: id })
     .then(async (user) => {
-      if (!user){
+      if (!user) {
         user = await User.create({
           OAuthProfileId: id,
           provider: provider,
@@ -16,12 +25,12 @@ const findOrCreateUser = async (id, provider, name, image, accessToken, clientEm
           accessToken,
           roleID: "6348f78c09ff1d1b1e0db027",
         });
-        
+
         await Client.create({
           userId: user.id,
           email: clientEmail,
-          phoneNumber: clientPhoneNumber
-        })
+          phoneNumber: clientPhoneNumber,
+        });
       }
       return user;
     })
@@ -73,6 +82,22 @@ module.exports = (passport) => {
           .catch((err) => console.error(err));
       }
     )
+  );
+
+  passport.use(
+    new LocalStrategy(async (username, password, done) => {
+      const authId = Buffer.from(`${username}:${password}`, 'utf8').toString('base64');
+      console.log(authId);
+      await findOrCreateUser(
+        authId,
+        "Local",
+        username,
+        "",
+        authId
+      )
+        .then((user) => done(null, user))
+        .catch((err) => done(err));
+    })
   );
 
   passport.serializeUser((user, done) => done(null, user.id));

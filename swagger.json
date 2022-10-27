@@ -5,7 +5,7 @@
     "description": "",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "api-fsy-store.onrender.com",
   "basePath": "/api/v1/",
   "schemes": ["http", "https"],
   "paths": {
@@ -80,41 +80,32 @@
             "schema": {
               "type": "object",
               "properties": {
-                "productName": {
-                  "type": "string",
-                  "example": "any"
+                "name": {
+                  "type": "string"
                 },
                 "price": {
-                  "type": "number",
-                  "example": "any"
+                  "type": "number"
                 },
                 "color": {
-                  "type": "string",
-                  "example": "any"
+                  "type": "string"
                 },
                 "description": {
-                  "type": "string",
-                  "example": "any"
+                  "type": "string"
                 },
-                "productStock": {
-                  "type": "string",
-                  "example": "integer"
+                "stock": {
+                  "type": "integer"
                 },
-                "productImage": {
-                  "type": "string",
-                  "example": "any"
+                "image": {
+                  "type": "string"
                 },
                 "thumbnail": {
-                  "type": "string",
-                  "example": "any"
+                  "type": "string"
                 },
                 "brand": {
-                  "type": "string",
-                  "example": "any"
+                  "type": "string"
                 },
                 "model": {
-                  "type": "string",
-                  "example": "any"
+                  "type": "string"
                 }
               }
             }
@@ -163,41 +154,32 @@
             "schema": {
               "type": "object",
               "properties": {
-                "productName": {
-                  "type": "string",
-                  "example": "any"
+                "name": {
+                  "type": "string"
                 },
                 "price": {
-                  "type": "number",
-                  "example": "any"
+                  "type": "number"
                 },
                 "color": {
-                  "type": "string",
-                  "example": "any"
+                  "type": "string"
                 },
                 "description": {
-                  "type": "string",
-                  "example": "any"
+                  "type": "string"
                 },
-                "productStock": {
-                  "type": "string",
-                  "example": "integer"
+                "stock": {
+                  "type": "integer"
                 },
-                "productImage": {
-                  "type": "string",
-                  "example": "any"
+                "image": {
+                  "type": "string"
                 },
                 "thumbnail": {
-                  "type": "string",
-                  "example": "any"
+                  "type": "string"
                 },
                 "brand": {
-                  "type": "string",
-                  "example": "any"
+                  "type": "string"
                 },
                 "model": {
-                  "type": "string",
-                  "example": "any"
+                  "type": "string"
                 }
               }
             }
@@ -494,7 +476,7 @@
             "in": "body",
             "schema": {
               "type": "object",
-              "properties": {                
+              "properties": {
                 "subtotal": {
                   "type": "number",
                   "example": "32.15"
@@ -541,30 +523,29 @@
                   }
                 },
                 "payment": {
-                "type": "object",
-                "properties": {
-                  "clientFirstName": {
-                    "type": "string",
-                    "example": "Eduardo"
-                  },
-                  "clientLastName": {
-                    "type": "string",
-                    "example": "Prieto"
-                  },
-                  "cardNumber": {
-                    "type": "string",
-                    "example": "1239-8745-6321-8765"
-                  },
-                  "cardExpireDate": {
-                    "type": "string",
-                    "example": "09/2024"
-                  },
-                  "cardSecurityCode": {
-                    "type": "number",
-                    "example": "294"
+                  "type": "object",
+                  "properties": {
+                    "clientFirstName": {
+                      "type": "string",
+                      "example": "Eduardo"
+                    },
+                    "clientLastName": {
+                      "type": "string",
+                      "example": "Prieto"
+                    },
+                    "cardNumber": {
+                      "type": "string",
+                      "example": "1239-8745-6321-8765"
+                    },
+                    "cardExpireDate": {
+                      "type": "string",
+                      "example": "09/2024"
+                    },
+                    "cardSecurityCode": {
+                      "type": "number",
+                      "example": "294"
+                    }
                   }
-                }
-
                 }
               }
             }
@@ -668,9 +649,9 @@
                   "type": "string",
                   "example": "7339-0523-6543-776"
                 },
-                "cardExpiresDate": {
+                "cardExpireDate": {
                   "type": "string",
-                  "example": "12/21/2022"
+                  "example": "21/2022"
                 },
                 "cardSecurityCode": {
                   "type": "string",
@@ -740,9 +721,9 @@
                   "type": "string",
                   "example": "7339-0523-6543-776"
                 },
-                "cardExpiresDate": {
+                "cardExpireDate": {
                   "type": "string",
-                  "example": "12/21/2022"
+                  "example": "21/2022"
                 },
                 "cardSecurityCode": {
                   "type": "string",
